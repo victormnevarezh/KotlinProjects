@@ -5,10 +5,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class Personaje (
-    var nombre: String = "",
-    var frase: String = "",
-    var imagen: Int? = null,
-    var audio: Int? = null,
+    var nombre: String,
+    var frase: String,
+    var imagen: Int,
+    var audio: Int,
     var favPersonaje: Boolean = false,
     var favSonido: Boolean = false
 ) : Parcelable {

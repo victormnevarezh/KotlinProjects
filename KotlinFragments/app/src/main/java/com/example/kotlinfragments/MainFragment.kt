@@ -14,7 +14,10 @@ import java.util.ArrayList
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
+    //Index
     private var selectedIndex: Int = 0
+
+    //Array
     lateinit var listaCast: ArrayList<Personaje>
 
     //Texto
@@ -29,10 +32,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     //Botones
     private lateinit var btnInfo: Button
 
-    //Array
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         txtNombre = view.findViewById(R.id.txtNombreMain)
         imgMain = view.findViewById(R.id.imgMain)
         btnLeft = view.findViewById(R.id.btnLeft)
@@ -74,7 +74,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         btnInfo.setOnClickListener {
             (activity as MainActivity?)?.replaceFragment(InfoFragment().apply {
                 arguments = Bundle().apply {
-                    putParcelable("selectedPersonaje", listaCast.elementAt(selectedIndex))
+                    putParcelableArrayList("listaCast", listaCast)
+                    putInt("selectedIndex", selectedIndex)
                 }
             })
         }

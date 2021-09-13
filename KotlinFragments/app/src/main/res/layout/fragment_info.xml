@@ -24,14 +24,14 @@
         android:text="Nombre del personaje"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:translationY="470dp" />
+        android:translationY="450dp" />
 
     <ImageView
         android:id="@+id/imgInfo"
         android:layout_width="match_parent"
         android:layout_height="374dp"
         android:src="@drawable/bodoque"
-        android:translationY="60dp" />
+        android:translationY="50dp" />
 
     <ImageView
         android:id="@+id/imgStar"
@@ -39,7 +39,7 @@
         android:layout_height="62dp"
         android:src="@drawable/staroff"
         android:translationX="20dp"
-        android:translationY="600dp" />
+        android:translationY="560dp" />
 
     <ImageView
         android:id="@+id/imgSoundInfo"
@@ -47,6 +47,14 @@
         android:layout_height="61dp"
         android:src="@drawable/soundoff"
         android:translationX="300dp"
-        android:translationY="600dp" />
+        android:translationY="560dp" />
+
+    <ImageView
+        android:id="@+id/imgFrase"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:src="@drawable/soundfrase"
+        android:translationX="150dp"
+        android:translationY="560dp" />
 
 </FrameLayout>
