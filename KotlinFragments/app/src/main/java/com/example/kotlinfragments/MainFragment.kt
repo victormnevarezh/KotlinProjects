@@ -1,5 +1,6 @@
 package com.example.kotlinfragments
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -81,6 +82,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     putInt("selectedIndex", selectedIndex)
                 }
             })
+        }
+
+        imgSonidoMain.setOnClickListener {
+            listaCast.forEach {
+                if (it.favSonido)
+                    MediaPlayer.create(context, it.audio).start()
+            }
         }
     }
 }

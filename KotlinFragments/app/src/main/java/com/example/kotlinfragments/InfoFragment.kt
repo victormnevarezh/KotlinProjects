@@ -25,7 +25,6 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
     //Image View
     private lateinit var imgInfo: ImageView
     private lateinit var imgStar: ImageView
-    private lateinit var imgSound: ImageView
     private lateinit var imgSoundInfo: ImageView
     private lateinit var imgFrase: ImageView
 
@@ -34,13 +33,13 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
         txtFrase = view.findViewById(R.id.txtFrase)
         imgInfo = view.findViewById(R.id.imgInfo)
         imgStar = view.findViewById(R.id.imgStar)
-        imgSound = view.findViewById(R.id.im)
         imgSoundInfo = view.findViewById(R.id.imgSoundInfo)
         imgFrase = view.findViewById(R.id.imgFrase)
 
         arguments()
         setViews()
         setStarImage()
+        setAudioImage()
         setEvents()
     }
 
@@ -75,6 +74,15 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
             setStarImage()
         }
 
+        imgSoundInfo.setOnClickListener{
+            listaCast.forEach {
+                if (it.favSonido) {
+                    it.favSonido = false
+                }
+            }
+            listaCast.elementAt(selectedIndex).favSonido = true
+            setAudioImage()
+        }
 
     }
 
@@ -82,6 +90,13 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
         when (listaCast.elementAt(selectedIndex).favPersonaje) {
             true -> { imgStar.setImageResource(R.drawable.staron) }
             false -> { imgStar.setImageResource(R.drawable.staroff) }
+        }
+    }
+
+    private fun setAudioImage() {
+        when (listaCast.elementAt(selectedIndex).favSonido) {
+            true -> { imgSoundInfo.setImageResource(R.drawable.soundon) }
+            false -> { imgSoundInfo.setImageResource(R.drawable.soundoff) }
         }
     }
 
