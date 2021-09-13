@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    tools:context=".InfoFragment">
+
+
+    <TextView
+        android:id="@+id/txtNombreInfo"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="Nombre del personaje"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txtFrase"
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:text="Nombre del personaje"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:translationY="470dp" />
+
+    <ImageView
+        android:id="@+id/imgInfo"
+        android:layout_width="match_parent"
+        android:layout_height="374dp"
+        android:src="@drawable/bodoque"
+        android:translationY="60dp" />
+
+    <ImageView
+        android:id="@+id/imgStar"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:src="@drawable/staroff"
+        android:translationX="20dp"
+        android:translationY="600dp" />
+
+    <ImageView
+        android:id="@+id/imgSoundInfo"
+        android:layout_width="60dp"
+        android:layout_height="61dp"
+        android:src="@drawable/soundoff"
+        android:translationX="300dp"
+        android:translationY="600dp" />
+
+</FrameLayout>
