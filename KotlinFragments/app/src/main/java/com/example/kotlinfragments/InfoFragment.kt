@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import java.util.ArrayList
 
 class InfoFragment : Fragment(R.layout.fragment_info) {
 
@@ -17,7 +16,7 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
     private var selectedIndex: Int = 0
 
     //Array
-    private lateinit var listaCast: ArrayList<Personaje>
+    private lateinit var listaCast: Array<Personaje>
 
     //Text View
     private lateinit var txtNombreInfo: TextView
@@ -26,6 +25,7 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
     //Image View
     private lateinit var imgInfo: ImageView
     private lateinit var imgStar: ImageView
+    private lateinit var imgSound: ImageView
     private lateinit var imgSoundInfo: ImageView
     private lateinit var imgFrase: ImageView
 
@@ -34,16 +34,18 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
         txtFrase = view.findViewById(R.id.txtFrase)
         imgInfo = view.findViewById(R.id.imgInfo)
         imgStar = view.findViewById(R.id.imgStar)
+        imgSound = view.findViewById(R.id.im)
         imgSoundInfo = view.findViewById(R.id.imgSoundInfo)
         imgFrase = view.findViewById(R.id.imgFrase)
 
         arguments()
         setViews()
+        setStarImage()
         setEvents()
     }
 
     private fun arguments() {
-        listaCast = requireArguments().getParcelableArrayList<Personaje>("listaCast") as ArrayList<Personaje>
+        listaCast = requireArguments().getParcelableArray("listaCast") as Array<Personaje>
         selectedIndex = requireArguments().getInt("selectedIndex")
     }
 
@@ -63,6 +65,23 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
                     putInt("selectedImage", listaCast.elementAt(selectedIndex).imagen)
                 }
             })
+        }
+
+        imgStar.setOnClickListener{
+            when (listaCast.elementAt(selectedIndex).favPersonaje) {
+                true -> { listaCast.elementAt(selectedIndex).favPersonaje = false }
+                false -> { listaCast.elementAt(selectedIndex).favPersonaje = true }
+            }
+            setStarImage()
+        }
+
+
+    }
+
+    private fun setStarImage() {
+        when (listaCast.elementAt(selectedIndex).favPersonaje) {
+            true -> { imgStar.setImageResource(R.drawable.staron) }
+            false -> { imgStar.setImageResource(R.drawable.staroff) }
         }
     }
 

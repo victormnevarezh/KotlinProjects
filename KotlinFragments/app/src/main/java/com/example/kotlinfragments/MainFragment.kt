@@ -1,16 +1,12 @@
 package com.example.kotlinfragments
 
-import android.app.Activity
-import android.app.Person
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import java.util.ArrayList
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -18,7 +14,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private var selectedIndex: Int = 0
 
     //Array
-    lateinit var listaCast: ArrayList<Personaje>
+    private lateinit var listaCast: Array<Personaje>
 
     //Texto
     private lateinit var txtNombre: TextView
@@ -32,7 +28,15 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     //Botones
     private lateinit var btnInfo: Button
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        listaCast = requireArguments().getParcelableArray("listaSended") as Array<Personaje>
+
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (activity as MainActivity?)?.savePreferences(listaCast)
+
         txtNombre = view.findViewById(R.id.txtNombreMain)
         imgMain = view.findViewById(R.id.imgMain)
         btnLeft = view.findViewById(R.id.btnLeft)
@@ -40,10 +44,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         btnInfo = view.findViewById(R.id.btnInfo)
         imgSonidoMain = view.findViewById(R.id.imgSonidoMain)
 
-        listaCast = Personaje.cast
-
         setViews()
         setEvents()
+
     }
 
     private fun setViews() {
@@ -74,7 +77,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         btnInfo.setOnClickListener {
             (activity as MainActivity?)?.replaceFragment(InfoFragment().apply {
                 arguments = Bundle().apply {
-                    putParcelableArrayList("listaCast", listaCast)
+                    putParcelableArray("listaCast", listaCast)
                     putInt("selectedIndex", selectedIndex)
                 }
             })

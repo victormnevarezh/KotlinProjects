@@ -1,8 +1,10 @@
 package com.example.kotlinfragments
 
 import android.os.Parcelable
+import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
+@JsonClass (generateAdapter = true)
 @Parcelize
 class Personaje (
     var nombre: String,
@@ -14,7 +16,7 @@ class Personaje (
 ) : Parcelable {
 
     companion object {
-        val cast = arrayListOf<Personaje>(
+        val cast = arrayOf<Personaje>(
             Personaje(Cast.TULIO.nombre, Cast.TULIO.frase, Cast.TULIO.imagen, Cast.TULIO.audio),
             Personaje(Cast.BODOQUE.nombre, Cast.BODOQUE.frase, Cast.BODOQUE.imagen, Cast.BODOQUE.audio),
             Personaje(Cast.JUANIN.nombre, Cast.JUANIN.frase, Cast.JUANIN.imagen, Cast.JUANIN.audio),
