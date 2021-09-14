@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
     tools:context=".DetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imgArticleDetail"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_launcher_background"
+        android:translationX="110dp"
+        android:translationY="50dp" />
+
+    <ImageView
+        android:id="@+id/imgHeartDetail"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/heartoff" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/txtNoHeart"
+        android:layout_width="87dp"
+        android:layout_height="wrap_content"
+        android:text="31!"
+        android:translationX="67dp"
+        android:translationY="15dp" />
+
+    <EditText
+        android:id="@+id/txtTitleDetail"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:inputType="text"
+        android:text="Título"
+        android:textAlignment="center"
+        android:translationX="15dp"
+        android:translationY="230dp" />
+
+    <EditText
+        android:id="@+id/txtContentDetail"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:inputType="text"
+        android:text="Aquí va el contenido del editText..."
+        android:textAlignment="center"
+        android:translationX="15dp"
+        android:translationY="310dp" />
+
+    <Button
+        android:id="@+id/btnEditDetail"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:text="Button"
+        android:translationX="110dp"
+        android:translationY="570dp" />
 
 </FrameLayout>
