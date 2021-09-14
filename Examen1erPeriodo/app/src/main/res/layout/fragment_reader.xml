@@ -10,7 +10,25 @@
     tools:context=".ReaderFragment">
 
     <ImageView
-        android:id="@+id/imgUserWriter"
+        android:id="@+id/imgHeartReader"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/heartoff"
+        android:translationX="160dp"
+        android:translationY="500dp" />
+
+    <TextView
+        android:id="@+id/txtArticleNameReader"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:translationX="70dp"
+        android:translationY="450dp" />
+
+    <ImageView
+        android:id="@+id/imgUserReader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:translationX="30dp"
@@ -18,7 +36,7 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/txtNicknameWriter"
+        android:id="@+id/txtNicknameReader"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -27,7 +45,7 @@
         android:translationY="30dp" />
 
     <TextView
-        android:id="@+id/txtUserTypeWriter"
+        android:id="@+id/txtUserTypeReader"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -36,7 +54,7 @@
         android:translationY="70dp" />
 
     <TextView
-        android:id="@+id/txtNoArticles"
+        android:id="@+id/txtNoArticlesReader"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -45,15 +63,14 @@
         android:translationY="100dp" />
 
     <ImageView
-        android:id="@+id/imgArrowLeftWriter"
+        android:id="@+id/imgArrowLeftReader"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/arrowleft"
-        android:translationX="0dp"
         android:translationY="300dp" />
 
     <ImageView
-        android:id="@+id/imgArrowRightWriter"
+        android:id="@+id/imgArrowRightReader"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/arrowright"
@@ -61,34 +78,11 @@
         android:translationY="300dp" />
 
     <ImageView
-        android:id="@+id/imgArticleWriter"
+        android:id="@+id/imgArticleReader"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/ic_launcher_background"
         android:translationX="90dp"
         android:translationY="230dp" />
 
-    <Button
-        android:id="@+id/btnArticleNew"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="Nuevo"
-        android:translationX="120dp"
-        android:translationY="470dp" />
-
-    <Button
-        android:id="@+id/btnArticleEdit"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="Editar"
-        android:translationX="120dp"
-        android:translationY="530dp" />
-
-    <Button
-        android:id="@+id/btnArticleDelete"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="Eliminar"
-        android:translationX="120dp"
-        android:translationY="590dp" />
 </FrameLayout>
