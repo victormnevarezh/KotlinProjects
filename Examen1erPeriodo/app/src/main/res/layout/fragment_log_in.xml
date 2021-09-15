@@ -40,7 +40,7 @@
         android:id="@+id/btnLogIn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Ingresar"
         android:translationX="105dp"
         android:translationY="510dp" />
 </FrameLayout>

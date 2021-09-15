@@ -9,7 +9,8 @@ import kotlinx.parcelize.Parcelize
 class User (
     var name: String,
     var type: Boolean,
-    var articles: Array<Article>
+    var articles: Array<Article>,
+    var loged: Boolean = false
         ) : Parcelable {
 
     companion object {
