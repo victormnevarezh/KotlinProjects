@@ -41,35 +41,76 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
         imgLogIn.setImageResource(R.drawable.avatar)
         editTextUser = view.findViewById(R.id.editTextUser)
         editTextPassword = view.findViewById(R.id.editTextPassword)
+        editTextPassword.isEnabled = false
         btnLogIn = view.findViewById(R.id.btnLogIn)
+        btnLogIn.isEnabled = false
 
-
+        setEvents()
 
         // TODO: 15/09/2021 setEvents
     }
 
-    private fun changedEditTextUser () {
-        editTextUser.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                //No usado
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                listUsers.forEach {
-                    if (p0 == it.username) {
+    private fun setEvents() {
+        editTextUser.doAfterTextChanged {
+            val stringUser: String = editTextUser.text.toString()
+            var imgCambio = false
+            listUsers.forEach {
+                if (!imgCambio) {
+                    imgLogIn.setImageResource(R.drawable.avatar)
+                    editTextPassword.isEnabled = false
+                    btnLogIn.isEnabled = false
+                    if(it.username == stringUser) {
+                        imgCambio = true
                         imgLogIn.setImageResource(it.image)
-                    }
-                    else {
-                        imgLogIn.setImageResource(R.drawable.avatar)
+                        editTextPassword.isEnabled = true
                     }
                 }
             }
+        }
 
-            override fun afterTextChanged(p0: Editable?) {
-                //No usado
+        editTextPassword.doAfterTextChanged {
+            if (editTextPassword.toString() == "") {
+                btnLogIn.isEnabled = false
+            } else if (editTextPassword.toString() != "") {
+                btnLogIn.isEnabled = true
             }
+        }
 
-        })
+        // TODO: btnLogIn
+        btnLogIn.setOnClickListener {
+            var acceptedCombination = false
+            var user = editTextUser.toString()
+            var password = editTextPassword.toString()
+
+            listUsers.forEach {
+                println("Entro al foreach")
+                if(!acceptedCombination) {
+                    println("acceptedCombination era false")
+                    if(user == it.username && password == it.password) {
+                        println("Ambas datos eran correctos")
+                        it.loged = true
+                        //If de tipo de usuario
+                        if (it.type) {
+                            println("Entro a iniciar como escritor")
+                            (activity as MainActivity?)?.replaceFragment(WriterFragment().apply {
+                                arguments = Bundle().apply {
+                                    putParcelableArray("listUsers", listUsers)
+                                }
+                            })
+                        }
+                        else {
+                            println("Entro a iniciar como lector")
+                            (activity as MainActivity?)?.replaceFragment(ReaderFragment().apply {
+                                arguments = Bundle().apply {
+                                    putParcelableArray("listUsers", listUsers)
+                                }
+                            })
+                        }
+                    }
+                }
+            }
+        }
     }
+
 
 }

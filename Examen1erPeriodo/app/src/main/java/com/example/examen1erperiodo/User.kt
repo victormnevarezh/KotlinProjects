@@ -26,4 +26,6 @@ class User (
             User("juanin", "123", "Juanín Juan Harry", false, R.drawable.juanin, arrayOf(Article.publishedArticles.elementAt(3), Article.publishedArticles.elementAt(4), Article.publishedArticles.elementAt(5)))
         )
     }
+
+    fun validateUser() = users.firstOrNull { (it.username == this.username && it.password == this.password) }
 }

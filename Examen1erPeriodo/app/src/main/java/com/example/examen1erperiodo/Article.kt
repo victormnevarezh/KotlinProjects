@@ -1,8 +1,10 @@
 package com.example.examen1erperiodo
 
 import android.os.Parcelable
+import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
+@JsonClass(generateAdapter = true)
 @Parcelize
 class Article (
     var name:String,

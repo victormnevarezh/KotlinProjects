@@ -9,13 +9,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088a2530-d843-48cd-a9f2-b2567c703205" name="Default Changelist" comment="" />
+    <list default="true" id="088a2530-d843-48cd-a9f2-b2567c703205" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Examen1erPeriodo/app/src/main/java/com/example/examen1erperiodo/Article.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Examen1erPeriodo/app/src/main/java/com/example/examen1erperiodo/Article.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Examen1erPeriodo/app/src/main/java/com/example/examen1erperiodo/LogInFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Examen1erPeriodo/app/src/main/java/com/example/examen1erperiodo/LogInFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Examen1erPeriodo/app/src/main/java/com/example/examen1erperiodo/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Examen1erPeriodo/app/src/main/java/com/example/examen1erperiodo/User.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Development\.android\avd\Pixel_3a_XL.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Development\.android\avd\Pixel_5.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -33,6 +37,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -115,5 +120,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
