@@ -26,6 +26,4 @@ class User (
             User("juanin", "123", "Juanín Juan Harry", false, R.drawable.juanin, arrayOf(3,4,5))
         )
     }
-
-    fun validateUser() = users.firstOrNull { (it.username == this.username && it.password == this.password) }
 }

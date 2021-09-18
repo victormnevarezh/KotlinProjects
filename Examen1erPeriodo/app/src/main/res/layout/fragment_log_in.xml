@@ -11,8 +11,8 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:ems="10"
+        android:hint="Username"
         android:inputType="textPersonName"
-        android:text="Username"
         android:textAlignment="center"
         android:translationX="60dp"
         android:translationY="350dp" />
@@ -22,8 +22,8 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
-        android:text="Password"
         android:textAlignment="center"
         android:translationX="60dp"
         android:translationY="430dp" />
