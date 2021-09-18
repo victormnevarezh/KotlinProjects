@@ -14,9 +14,14 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
     //Array
     private lateinit var listUsers: Array<User>
     private lateinit var listArticles: Array<Article>
+    private lateinit var listArticlesInts: Array<Int>
 
     //Index
-    private var indexUser: Int? = null
+    private var indexUser: Int = 10
+    private var indexArticle: Int = 0
+
+    //Auxiliar
+    private lateinit var currentArticle: Article
 
     //Text View
     private lateinit var txtNicknameWriter: TextView
@@ -41,7 +46,7 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
         listUsers = requireArguments().getParcelableArray("listUsersSend") as Array<User>
         listArticles = requireArguments().getParcelableArray("listArticlesSend") as Array<Article>
 
-        listUsers.indexOfFirst { it.loged }
+        indexUser = listUsers.indexOfFirst { it.loged }
 
         super.onCreate(savedInstanceState)
     }
@@ -61,12 +66,52 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
 
         //Button
         btnArticleNew = view.findViewById(R.id.btnArticleNew)
-        btnArticleEdit = view.findViewById(R.id.btnEditDetail)
+        btnArticleEdit = view.findViewById(R.id.btnArticleEdit)
         btnArticleDelete = view.findViewById(R.id.btnArticleDelete)
+
+        initViewValues()
+        setEvents()
     }
 
     private fun initViewValues() {
-        //txtNicknameWriter = listUsers.
+        //Header
+        imgUserWriter.setImageResource(listUsers.elementAt(indexUser).image)
+        txtNicknameWriter.text = listUsers.elementAt(indexUser).name
+        txtUserTypeWriter.text = "Escritor"
+        txtNoArticles.text = listUsers.elementAt(indexUser).articles.size.toString()
+        listArticlesInts = listUsers.elementAt(indexUser).articles
+        articleView()
+    }
+
+    private fun articleView() {
+        currentArticle = getArticleById()
+        txtTitleWriter.text = currentArticle.name
+        imgArticleWriter.setImageResource(currentArticle.image)
+    }
+
+    private fun getArticleById() : Article {
+        var auxArticle: Article = listArticles.elementAt(listArticlesInts.elementAt(indexArticle))
+        return auxArticle
+    }
+
+    private fun setEvents() {
+        imgArrowRightWriter.setOnClickListener {
+            if (indexArticle < (listArticlesInts.size -1)) {
+                indexArticle++
+            } else if (indexArticle >= (listArticlesInts.size -1)) {
+                indexArticle = 0
+            }
+            articleView()
+        }
+
+        imgArrowLeftWriter.setOnClickListener {
+            if (indexArticle > 0) {
+                indexArticle--
+            } else if (indexArticle <= 0) {
+                indexArticle = listArticlesInts.lastIndex
+            }
+            articleView()
+        }
     }
 
 }

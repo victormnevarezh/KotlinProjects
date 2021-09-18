@@ -86,7 +86,7 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
                         true -> {
 
                             setLogedFalse() //Asigna false a todos los loged de toodo el array
-                            it.loged == true //Asigna el valor true al loged actual
+                            it.loged = true //Asigna el valor true al loged actual
                             (activity as MainActivity?)?.savePreferences(listUsers) //Guarda las preferencias
 
                             (activity as MainActivity?)?.replaceFragment(WriterFragment().apply {
@@ -99,7 +99,7 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
                         false -> {
 
                             setLogedFalse() //Asigna false a todos los loged de toodo el array
-                            it.loged == true //Asigna el valor true al loged actual
+                            it.loged = true //Asigna el valor true al loged actual
                             (activity as MainActivity?)?.savePreferences(listUsers) //Guarda las preferencias
 
                             (activity as MainActivity?)?.replaceFragment(ReaderFragment().apply {
