@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun savePreferences(listUsers: Array<User>) {
+    fun savePreferences(listUsers: Array<User>, listArticles: Array<Article>) {
         preferencesLogin.edit().putString(KEY_USER,moshi.adapter(Array::class.java).toJson(this.listUsers)).apply()
         preferencesLogin.edit().putString(KEY_ARTICLE,moshi.adapter(Array::class.java).toJson(listArticles)).apply()
     }

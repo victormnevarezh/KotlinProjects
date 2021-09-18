@@ -47,6 +47,7 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
         listArticles = requireArguments().getParcelableArray("listArticlesSend") as Array<Article>
 
         indexUser = listUsers.indexOfFirst { it.loged }
+        listArticlesInts = listUsers.elementAt(indexUser).articles
 
         super.onCreate(savedInstanceState)
     }
@@ -79,7 +80,7 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
         txtNicknameWriter.text = listUsers.elementAt(indexUser).name
         txtUserTypeWriter.text = "Escritor"
         txtNoArticles.text = listUsers.elementAt(indexUser).articles.size.toString()
-        listArticlesInts = listUsers.elementAt(indexUser).articles
+
         articleView()
     }
 
