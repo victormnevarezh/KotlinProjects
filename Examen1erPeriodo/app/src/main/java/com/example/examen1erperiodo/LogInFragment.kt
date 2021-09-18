@@ -36,7 +36,7 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        (activity as MainActivity?)?.savePreferences(listUsers)
+        //(activity as MainActivity?)?.savePreferences(listUsers)
 
         imgLogIn = view.findViewById(R.id.imgLogIn)
         imgLogIn.setImageResource(R.drawable.avatar)
@@ -78,9 +78,11 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
 
         // TODO: btnLogIn
         btnLogIn.setOnClickListener {
+            var toastFlag = false
             listUsers.forEach {
-                if ((it.username).equals(editTextUser.text) && (it.password).equals(editTextPassword.text)) {
-                    when (it.loged) {
+                if (it.username == editTextUser.text.toString() && it.password == editTextPassword.text.toString()) {
+                    toastFlag = true
+                    when (it.type) {
                         true -> {
                             (activity as MainActivity?)?.replaceFragment(WriterFragment().apply {
                                 arguments = Bundle().apply {
@@ -99,9 +101,9 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
                         }
                     }
                 }
-                else {
-                    Toast.makeText(context,"Datos de ingreso incorrectos", Toast.LENGTH_SHORT).show()
-                }
+            }
+            if(!toastFlag) {
+                Toast.makeText(context,"Datos de ingreso incorrectos", Toast.LENGTH_SHORT).show()
             }
         }
     }

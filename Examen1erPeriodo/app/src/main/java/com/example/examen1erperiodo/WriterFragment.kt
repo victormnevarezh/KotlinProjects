@@ -8,4 +8,21 @@ import android.view.ViewGroup
 
 class WriterFragment : Fragment(R.layout.fragment_writer) {
 
+    //Array
+    private lateinit var listUsers: Array<User>
+    private lateinit var listArticles: Array<Article>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        //Recibe los argumentos desde el Main Activity
+        listUsers = requireArguments().getParcelableArray("listUsersSend") as Array<User>
+        listArticles = requireArguments().getParcelableArray("listArticlesSend") as Array<Article>
+
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+    }
+
 }
