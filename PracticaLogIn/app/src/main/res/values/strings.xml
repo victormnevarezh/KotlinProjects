@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PracticaLogIn</string>
+
+    <string name="text_username">Username</string>
+
+    <string name="text_password">Password</string>
+
+    <string name="btn_login">Ingresar</string>
 </resources>
