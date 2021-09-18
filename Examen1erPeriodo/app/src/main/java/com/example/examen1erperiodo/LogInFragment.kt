@@ -84,6 +84,11 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
                     toastFlag = true
                     when (it.type) {
                         true -> {
+
+                            setLogedFalse() //Asigna false a todos los loged de toodo el array
+                            it.loged == true //Asigna el valor true al loged actual
+                            (activity as MainActivity?)?.savePreferences(listUsers) //Guarda las preferencias
+
                             (activity as MainActivity?)?.replaceFragment(WriterFragment().apply {
                                 arguments = Bundle().apply {
                                     putParcelableArray("listUsersSend", listUsers)
@@ -92,6 +97,11 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
                             })
                         }
                         false -> {
+
+                            setLogedFalse() //Asigna false a todos los loged de toodo el array
+                            it.loged == true //Asigna el valor true al loged actual
+                            (activity as MainActivity?)?.savePreferences(listUsers) //Guarda las preferencias
+
                             (activity as MainActivity?)?.replaceFragment(ReaderFragment().apply {
                                 arguments = Bundle().apply {
                                     putParcelableArray("listUsersSend", listUsers)
@@ -100,11 +110,16 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
                             })
                         }
                     }
+
                 }
             }
             if(!toastFlag) {
                 Toast.makeText(context,"Datos de ingreso incorrectos", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun setLogedFalse(){
+        listUsers.forEach { it.loged = false }
     }
 }

@@ -15,6 +15,9 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
     private lateinit var listUsers: Array<User>
     private lateinit var listArticles: Array<Article>
 
+    //Index
+    private var indexUser: Int? = null
+
     //Text View
     private lateinit var txtNicknameWriter: TextView
     private lateinit var txtUserTypeWriter: TextView
@@ -38,6 +41,8 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
         listUsers = requireArguments().getParcelableArray("listUsersSend") as Array<User>
         listArticles = requireArguments().getParcelableArray("listArticlesSend") as Array<Article>
 
+        listUsers.indexOfFirst { it.loged }
+
         super.onCreate(savedInstanceState)
     }
 
@@ -58,6 +63,10 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
         btnArticleNew = view.findViewById(R.id.btnArticleNew)
         btnArticleEdit = view.findViewById(R.id.btnEditDetail)
         btnArticleDelete = view.findViewById(R.id.btnArticleDelete)
+    }
+
+    private fun initViewValues() {
+        //txtNicknameWriter = listUsers.
     }
 
 }
