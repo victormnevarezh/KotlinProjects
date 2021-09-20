@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -36,6 +37,9 @@ class ReaderFragment : Fragment(R.layout.fragment_reader) {
     private lateinit var imgArrowLeftReader: ImageView
     private lateinit var imgArrowRightReader: ImageView
 
+    //Button
+    private lateinit var btnLogOutReader: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         //Recibe los argumentos desde el Main Activity
@@ -61,6 +65,9 @@ class ReaderFragment : Fragment(R.layout.fragment_reader) {
         imgHeartReader = view.findViewById(R.id.imgHeartReader)
         imgArrowLeftReader = view.findViewById(R.id.imgArrowLeftReader)
         imgArrowRightReader = view.findViewById(R.id.imgArrowRightReader)
+
+        //Button
+        btnLogOutReader = view.findViewById(R.id.btnLogOutReader)
 
         initViewValues()
         setEvents()
@@ -142,6 +149,30 @@ class ReaderFragment : Fragment(R.layout.fragment_reader) {
             listUsers.elementAt(indexUser).articles = listArticlesInts
             (activity as MainActivity?)?.savePreferences(listUsers, listArticles)
             articleView()
+        }
+
+        imgArticleReader.setOnClickListener {
+            (activity as MainActivity?)?.replaceFragment(DetailFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelableArray("listUsersSend", listUsers)
+                    putParcelableArray("listArticlesSend", listArticles)
+                }
+            })
+        }
+
+        btnLogOutReader.setOnClickListener {
+            listUsers.forEach {
+                it.loged = false
+            }
+
+            (activity as MainActivity?)?.savePreferences(listUsers, listArticles)
+
+            (activity as MainActivity?)?.replaceFragment(LogInFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelableArray("listUsersSend", listUsers)
+                    putParcelableArray("listArticlesSend", listArticles)
+                }
+            })
         }
     }
 

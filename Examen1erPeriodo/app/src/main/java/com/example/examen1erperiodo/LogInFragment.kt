@@ -46,6 +46,7 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
         btnLogIn = view.findViewById(R.id.btnLogIn)
         btnLogIn.isEnabled = false
 
+        setSharedLogin()
         setEvents()
     }
 
@@ -87,7 +88,7 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
 
                             setLogedFalse() //Asigna false a todos los loged de toodo el array
                             it.loged = true //Asigna el valor true al loged actual
-                            (activity as MainActivity?)?.savePreferences(listUsers) //Guarda las preferencias
+                            (activity as MainActivity?)?.savePreferences(listUsers, listArticles) //Guarda las preferencias
 
                             (activity as MainActivity?)?.replaceFragment(WriterFragment().apply {
                                 arguments = Bundle().apply {
@@ -100,7 +101,7 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
 
                             setLogedFalse() //Asigna false a todos los loged de toodo el array
                             it.loged = true //Asigna el valor true al loged actual
-                            (activity as MainActivity?)?.savePreferences(listUsers) //Guarda las preferencias
+                            (activity as MainActivity?)?.savePreferences(listUsers, listArticles) //Guarda las preferencias
 
                             (activity as MainActivity?)?.replaceFragment(ReaderFragment().apply {
                                 arguments = Bundle().apply {
@@ -121,5 +122,28 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
 
     private fun setLogedFalse(){
         listUsers.forEach { it.loged = false }
+    }
+
+    private fun setSharedLogin() {
+        listUsers.forEach {
+            if (it.loged) {
+                    if (it.type) {
+                        (activity as MainActivity?)?.replaceFragment(WriterFragment().apply {
+                            arguments = Bundle().apply {
+                                putParcelableArray("listUsersSend", listUsers)
+                                putParcelableArray("listArticlesSend", listArticles)
+                            }
+                        })
+                    } else {
+                        (activity as MainActivity?)?.replaceFragment(ReaderFragment().apply {
+                            arguments = Bundle().apply {
+                                putParcelableArray("listUsersSend", listUsers)
+                                putParcelableArray("listArticlesSend", listArticles)
+                            }
+                        })
+                    }
+
+            }
+        }
     }
 }

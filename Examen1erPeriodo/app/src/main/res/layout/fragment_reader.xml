@@ -10,79 +10,91 @@
     tools:context=".ReaderFragment">
 
     <ImageView
-        android:id="@+id/imgHeartReader"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/heartoff"
-        android:translationX="160dp"
-        android:translationY="500dp" />
-
-    <TextView
-        android:id="@+id/txtTitleReader"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:translationX="70dp"
-        android:translationY="450dp" />
-
-    <ImageView
         android:id="@+id/imgUserReader"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:translationX="30dp"
-        android:translationY="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
         tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/txtNicknameReader"
-        android:layout_width="160dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="20sp"
-        android:translationX="180dp"
-        android:translationY="30dp" />
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/txtUserTypeReader"
-        android:layout_width="160dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="16sp"
-        android:translationX="180dp"
-        android:translationY="70dp" />
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="70dp" />
 
     <TextView
         android:id="@+id/txtNoArticlesReader"
-        android:layout_width="160dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="16sp"
-        android:translationX="180dp"
-        android:translationY="100dp" />
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="100dp" />
+
+    <ImageView
+        android:id="@+id/imgArticleReader"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_marginTop="180dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp" />
+
+    <TextView
+        android:id="@+id/txtTitleReader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="400dp"/>
 
     <ImageView
         android:id="@+id/imgArrowLeftReader"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/arrowleft"
-        android:translationY="300dp" />
+        android:layout_marginTop="250dp" />
 
     <ImageView
         android:id="@+id/imgArrowRightReader"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/arrowright"
-        android:translationX="320dp"
-        android:translationY="300dp" />
+        android:layout_marginLeft="315dp"
+        android:layout_marginTop="250dp" />
 
     <ImageView
-        android:id="@+id/imgArticleReader"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/ic_launcher_background"
-        android:translationX="90dp"
-        android:translationY="230dp" />
+        android:id="@+id/imgHeartReader"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:src="@drawable/heartoff"
+        android:layout_marginTop="470dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginLeft="150dp"/>
+
+    <Button
+        android:id="@+id/btnLogOutReader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LogOut"
+        android:layout_marginTop="550dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp"/>
 
 </FrameLayout>

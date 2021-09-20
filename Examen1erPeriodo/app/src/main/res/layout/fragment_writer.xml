@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btnLogOutWriter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
@@ -12,93 +12,106 @@
         android:id="@+id/imgUserWriter"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:translationX="30dp"
-        android:translationY="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
         tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/txtNicknameWriter"
-        android:layout_width="160dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="20sp"
-        android:translationX="180dp"
-        android:translationY="30dp" />
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/txtUserTypeWriter"
-        android:layout_width="160dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="16sp"
-        android:translationX="180dp"
-        android:translationY="70dp" />
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="70dp" />
 
     <TextView
         android:id="@+id/txtNoArticles"
-        android:layout_width="160dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="16sp"
-        android:translationX="180dp"
-        android:translationY="100dp" />
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:id="@+id/txtTitleWriter"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="170dp" />
+
+    <ImageView
+        android:id="@+id/imgArticleWriter"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp" />
 
     <ImageView
         android:id="@+id/imgArrowLeftWriter"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/arrowleft"
-        android:translationX="0dp"
-        android:translationY="300dp" />
+        android:layout_marginTop="300dp" />
 
     <ImageView
         android:id="@+id/imgArrowRightWriter"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/arrowright"
-        android:translationX="320dp"
-        android:translationY="300dp" />
-
-    <ImageView
-        android:id="@+id/imgArticleWriter"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/ic_launcher_background"
-        android:translationX="90dp"
-        android:translationY="230dp" />
+        android:layout_marginLeft="315dp"
+        android:layout_marginTop="300dp" />
 
     <Button
         android:id="@+id/btnArticleNew"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="Nuevo"
-        android:translationX="120dp"
-        android:translationY="470dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New"
+        android:layout_marginTop="440dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp" />
 
     <Button
         android:id="@+id/btnArticleEdit"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="Editar"
-        android:translationX="120dp"
-        android:translationY="530dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:layout_marginTop="490dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp" />
 
     <Button
         android:id="@+id/btnArticleDelete"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="Eliminar"
-        android:translationX="120dp"
-        android:translationY="590dp" />
-
-    <TextView
-        android:id="@+id/txtTitleWriter"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:translationX="65dp"
-        android:translationY="190dp" />
+        android:text="Delete"
+        android:layout_marginTop="540dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LogOut"
+        android:layout_marginTop="590dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp" />
 
 </FrameLayout>

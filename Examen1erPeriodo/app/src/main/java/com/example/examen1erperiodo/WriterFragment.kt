@@ -39,6 +39,7 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
     private lateinit var btnArticleNew: Button
     private lateinit var btnArticleEdit: Button
     private lateinit var btnArticleDelete: Button
+    private lateinit var btnLogOutWriter: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -69,6 +70,7 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
         btnArticleNew = view.findViewById(R.id.btnArticleNew)
         btnArticleEdit = view.findViewById(R.id.btnArticleEdit)
         btnArticleDelete = view.findViewById(R.id.btnArticleDelete)
+        btnLogOutWriter = view.findViewById(R.id.btnLogOutWriter)
 
         initViewValues()
         setEvents()
@@ -112,6 +114,21 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
                 indexArticle = listArticlesInts.lastIndex
             }
             articleView()
+        }
+
+        btnLogOutWriter.setOnClickListener {
+            listUsers.forEach {
+                it.loged = false
+            }
+
+            (activity as MainActivity?)?.savePreferences(listUsers, listArticles)
+
+            (activity as MainActivity?)?.replaceFragment(LogInFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelableArray("listUsersSend", listUsers)
+                    putParcelableArray("listArticlesSend", listArticles)
+                }
+            })
         }
     }
 
