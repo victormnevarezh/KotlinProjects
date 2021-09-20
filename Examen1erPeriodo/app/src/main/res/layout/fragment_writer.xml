@@ -106,7 +106,7 @@
         android:layout_marginRight="130dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnNewLogOutWriter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LogOut"

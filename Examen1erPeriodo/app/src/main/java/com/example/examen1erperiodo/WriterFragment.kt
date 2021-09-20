@@ -70,7 +70,7 @@ class WriterFragment : Fragment(R.layout.fragment_writer) {
         btnArticleNew = view.findViewById(R.id.btnArticleNew)
         btnArticleEdit = view.findViewById(R.id.btnArticleEdit)
         btnArticleDelete = view.findViewById(R.id.btnArticleDelete)
-        btnLogOutWriter = view.findViewById(R.id.btnLogOutWriter)
+        btnLogOutWriter = view.findViewById(R.id.btnNewLogOutWriter)
 
         initViewValues()
         setEvents()
