@@ -42,7 +42,7 @@ class ReaderFragment : Fragment(R.layout.fragment_reader) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        //Recibe los argumentos desde el Main Activity
+        //Recibe los argumentos desde el LoginFragment
         listUsers = requireArguments().getParcelableArray("listUsersSend") as Array<User>
         listArticles = requireArguments().getParcelableArray("listArticlesSend") as Array<Article>
 
@@ -171,6 +171,17 @@ class ReaderFragment : Fragment(R.layout.fragment_reader) {
                 arguments = Bundle().apply {
                     putParcelableArray("listUsersSend", listUsers)
                     putParcelableArray("listArticlesSend", listArticles)
+                }
+            })
+        }
+
+        imgArticleReader.setOnClickListener {
+
+            (activity as MainActivity?)?.replaceFragment(DetailFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelableArray("listUsersSend", listUsers)
+                    putParcelableArray("listArticlesSend", listArticles)
+                    putInt("indexArticleSend", indexArticle)
                 }
             })
         }
