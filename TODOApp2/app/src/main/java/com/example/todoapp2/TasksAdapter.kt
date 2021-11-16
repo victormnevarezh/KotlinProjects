@@ -43,7 +43,7 @@ class TasksAdapter(private val list: MutableList<Task>) :
             chkFinished.setOnClickListener{
                 list.removeAt(position)
 
-                notifyItemRemoved(position)
+                notifyDataSetChanged()
             }
 
             rootView.setOnClickListener{ }
