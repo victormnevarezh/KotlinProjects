@@ -5,10 +5,7 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.EditText
-import android.widget.TimePicker
+import android.widget.*
 import com.example.todoapp2.MainActivity.Companion.NEW_TASK
 import com.example.todoapp2.MainActivity.Companion.NEW_TASK_KEY
 import java.time.LocalDate
@@ -68,27 +65,33 @@ class FormActivity : AppCompatActivity() {
         }
 
         btnAdd.setOnClickListener {
-            setResult(
-                NEW_TASK,
-                Intent().putExtra(
-                    NEW_TASK_KEY,
-                    Task(
-                        10,
-                        edtTitle.text.toString(),
-                        edtDescription.text.toString(),
-                        LocalDateTime.of(
-                            LocalDate.parse(
-                                edtDate.text,
-                                DateTimeFormatter.ofPattern("dd/MM/yyyy")
-                            ),
-                            LocalTime.parse(
-                                edtTime.text,
-                                DateTimeFormatter.ofPattern("HH:mm")
+            if (edtTitle.text.toString().equals("") && edtDescription.text.toString().equals("") && edtDate.text.toString().equals("") && edtTime.text.toString().equals(""))
+            {
+                setResult(
+                    NEW_TASK,
+                    Intent().putExtra(
+                        NEW_TASK_KEY,
+                        Task(
+                            10,
+                            edtTitle.text.toString(),
+                            edtDescription.text.toString(),
+                            LocalDateTime.of(
+                                LocalDate.parse(
+                                    edtDate.text,
+                                    DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                                ),
+                                LocalTime.parse(
+                                    edtTime.text,
+                                    DateTimeFormatter.ofPattern("HH:mm")
+                                )
                             )
                         )
                     )
                 )
-            )
+            } else {
+                Toast.makeText(this, "Llena todos los campos por favor", Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 }
