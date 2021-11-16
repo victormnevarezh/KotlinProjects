@@ -39,15 +39,20 @@ class FormActivity : AppCompatActivity() {
         edtDate.setOnClickListener {
             val nowDate = LocalDate.now()
 
-            DatePickerDialog(
+            var datePickerDialog = DatePickerDialog(
                 this,
                 { _, year, month, dayOfMonth ->
-                    edtDate.setText(String.format("%02d/%02d/%04d",dayOfMonth,month+1,year))
+                    edtDate.setText(
+                        String.format("%02d/%02d/%04d", dayOfMonth, month + 1, year)
+                    )
                 },
                 nowDate.year,
                 nowDate.monthValue - 1,
                 nowDate.dayOfMonth
-            ).show()
+            )
+
+            datePickerDialog.datePicker.minDate = System.currentTimeMillis() - 1000
+            datePickerDialog.show()
         }
 
         edtTime.setOnClickListener {
@@ -56,7 +61,7 @@ class FormActivity : AppCompatActivity() {
             TimePickerDialog(
                 this,
                 { _, hour, minute ->
-                    edtTime.setText(String.format("%02d:%02d", hour,minute))
+                    edtTime.setText(String.format("%02d:%02d", hour, minute))
                 },
                 nowTime.hour,
                 nowTime.minute,
@@ -65,8 +70,10 @@ class FormActivity : AppCompatActivity() {
         }
 
         btnAdd.setOnClickListener {
-            if (edtTitle.text.toString().equals("") && edtDescription.text.toString().equals("") && edtDate.text.toString().equals("") && edtTime.text.toString().equals(""))
-            {
+            if (edtTitle.text.toString().equals("") && edtDescription.text.toString()
+                    .equals("") && edtDate.text.toString().equals("") && edtTime.text.toString()
+                    .equals("")
+            ) {
                 setResult(
                     NEW_TASK,
                     Intent().putExtra(
@@ -88,6 +95,7 @@ class FormActivity : AppCompatActivity() {
                         )
                     )
                 )
+                Toast.makeText(this, "Se ha añadido la tarea:)", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Llena todos los campos por favor", Toast.LENGTH_SHORT).show()
             }
