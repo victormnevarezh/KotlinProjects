@@ -45,7 +45,7 @@ class FormActivity : AppCompatActivity() {
             DatePickerDialog(
                 this,
                 { _, year, month, dayOfMonth ->
-                    edtDate.setText("$dayOfMonth/$month/$year")
+                    edtDate.setText(String.format("%02d/%02d/%04d",dayOfMonth,month+1,year))
                 },
                 nowDate.year,
                 nowDate.monthValue - 1,
@@ -59,7 +59,7 @@ class FormActivity : AppCompatActivity() {
             TimePickerDialog(
                 this,
                 { _, hour, minute ->
-                    edtTime.setText("$hour:$minute")
+                    edtTime.setText(String.format("%02d:%02d", hour,minute))
                 },
                 nowTime.hour,
                 nowTime.minute,
@@ -81,7 +81,10 @@ class FormActivity : AppCompatActivity() {
                                 edtDate.text,
                                 DateTimeFormatter.ofPattern("dd/MM/yyyy")
                             ),
-                            LocalTime.parse(edtTime.text, DateTimeFormatter.ofPattern("HH:mm"))
+                            LocalTime.parse(
+                                edtTime.text,
+                                DateTimeFormatter.ofPattern("HH:mm")
+                            )
                         )
                     )
                 )
