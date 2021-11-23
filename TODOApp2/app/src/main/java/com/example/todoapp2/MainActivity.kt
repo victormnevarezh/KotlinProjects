@@ -3,8 +3,6 @@ package com.example.todoapp2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcelable
-import android.os.PersistableBundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -77,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == NEW_TASK) {
             data?.getParcelableExtra<Task>(NEW_TASK_KEY)?.let {
-                adapter.add(it)
+                adapter.addTask(it)
             }
         }
     }

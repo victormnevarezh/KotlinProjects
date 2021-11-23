@@ -1,21 +1,39 @@
 package com.example.todoapp2
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.checkbox.MaterialCheckBox
 import java.time.format.DateTimeFormatter
 
-class TasksAdapter(private val list: MutableList<Task>) :
-    RecyclerView.Adapter<TasksAdapter.TaskViewHolder>() {
+@RequiresApi(Build.VERSION_CODES.O)
+class TasksAdapter(
 
-    fun add(task: Task) {
+    private val list: MutableList<Task>,
+    var onClickFinishedTask: (task: Task, position: Int) -> Unit,
+    var onClickDetailsTask: (task: Task) -> Unit
+
+) : RecyclerView.Adapter<TasksAdapter.TaskViewHolder>() {
+
+    fun addTask(task: Task) {
         list.add(task)
-
         notifyItemInserted(list.size - 1)
+    }
+
+    fun updateTask(task: Task){
+        val index = list.indexOfFirst { it.id == task.id }
+        list[index] = task
+        notifyItemChanged(index)
+    }
+
+    fun removeTask(position: Int){
+        list.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TasksAdapter.TaskViewHolder {
@@ -37,16 +55,16 @@ class TasksAdapter(private val list: MutableList<Task>) :
             val txvDateTime = findViewById<TextView>(R.id.txvDateTime)
             val chkFinished = findViewById<MaterialCheckBox>(R.id.chkFinished)
 
-            txvTitle.text = data.title
-            txvDateTime.text = data.dateTime.format(DateTimeFormatter.ofPattern("dd/MM/yy HH:mm a"))
+            txvTitle.text = data.Title
+            txvDateTime.text = data.Date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm a"))
 
             chkFinished.setOnClickListener{
-                list.removeAt(position)
-
-                notifyDataSetChanged()
+                onClickFinishedTask(data, adapterPosition)
             }
 
-            rootView.setOnClickListener{ }
+            rootView.setOnClickListener{
+                onClickDetailsTask(data)
+            }
 
         }
     }
