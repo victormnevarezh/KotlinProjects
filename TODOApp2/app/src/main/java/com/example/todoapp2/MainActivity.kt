@@ -15,13 +15,12 @@ import androidx.work.Data
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import com.example.todoapp2.database.TaskDatabase
+import com.example.todoapp2.database.TaskDataBase
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
-import java.time.Month
 import java.time.OffsetDateTime
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rcv: RecyclerView
     private lateinit var adapter: TasksAdapter
 
-    private lateinit var db: TaskDatabase
+    private lateinit var db: TaskDataBase
 
     //Mínimo necesario para una app
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +67,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        db = Room.databaseBuilder(this, TaskDatabase::class.java, "Tasks").build()
+        db = Room.databaseBuilder(this, TaskDataBase::class.java, "Tasks").build()
 
         MainScope().launch {
             tasks = db.taskDao().getPendingTasks().toMutableList()

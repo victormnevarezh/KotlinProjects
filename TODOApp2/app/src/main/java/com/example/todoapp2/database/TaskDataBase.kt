@@ -7,6 +7,6 @@ import com.example.todoapp2.Task
 
 @Database(entities = [Task::class], version = 1)
 @TypeConverters(TaskConverter::class)
-abstract class TaskDatabase() : RoomDatabase() {
+abstract class TaskDataBase() : RoomDatabase() {
     abstract fun taskDao(): TaskDao
 }
