@@ -3,9 +3,11 @@ package com.example.todoapp2
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.annotation.RequiresApi
 import com.example.todoapp2.MainActivity.Companion.NEW_TASK
 import com.example.todoapp2.MainActivity.Companion.NEW_TASK_KEY
 import java.time.LocalDate
@@ -14,6 +16,7 @@ import java.time.LocalTime
 import java.time.Month
 import java.time.format.DateTimeFormatter
 
+@RequiresApi(Build.VERSION_CODES.O)
 class FormActivity : AppCompatActivity() {
 
     private lateinit var edtTitle: EditText
@@ -21,12 +24,15 @@ class FormActivity : AppCompatActivity() {
     private lateinit var edtDate: EditText
     private lateinit var edtTime: EditText
     private lateinit var btnAdd: Button
+    private var isDetailTask = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form)
 
+        isDetailTask = intent.getBooleanExtra("isTaskDetail", false)
         initViews()
+        if(isDetailTask) setTask(intent.getParcelableExtra("task") ?: Task())
     }
 
     private fun initViews() {
@@ -70,10 +76,9 @@ class FormActivity : AppCompatActivity() {
         }
 
         btnAdd.setOnClickListener {
-            if (edtTitle.text.toString().equals("") && edtDescription.text.toString()
-                    .equals("") && edtDate.text.toString().equals("") && edtTime.text.toString()
-                    .equals("")
-            ) {
+            if (edtTitle.text.toString().equals("") && edtDescription.text.toString() .equals("") && edtDate.text.toString().equals("") && edtTime.text.toString().equals("")) {
+                Toast.makeText(this, "Llena todos los campos por favor", Toast.LENGTH_SHORT).show()
+            } else {
                 setResult(
                     NEW_TASK,
                     Intent().putExtra(
@@ -96,10 +101,16 @@ class FormActivity : AppCompatActivity() {
                     )
                 )
                 Toast.makeText(this, "Se ha añadido la tarea:)", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Llena todos los campos por favor", Toast.LENGTH_SHORT).show()
             }
 
         }
+    }
+
+    private fun setTask(task: Task) {
+        edtTitle.setText(task.Title)
+        edtDescription.setText(task.Description)
+        edtDate.setText(task.Date?.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")))
+        edtTime.setText(task.Date?.format(DateTimeFormatter.ofPattern("HH:mm")))
+        btnAdd.text = "Actualizar"
     }
 }

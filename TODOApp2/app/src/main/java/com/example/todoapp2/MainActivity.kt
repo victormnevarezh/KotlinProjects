@@ -52,13 +52,14 @@ class MainActivity : AppCompatActivity() {
             tasks = savedTasks
         }
 
+        createNotificationChannel()
         initViews()
         setAdapter()
     }
 
     //Inicializar vistas
     private fun initViews() {
-        add = findViewById(R.id.add)
+        add = findViewById(R.id.btnAddTask)
         rcv = findViewById(R.id.rcvTasks)
         add.setOnClickListener {
             startActivityForResult(Intent(this, FormActivity::class.java), NEW_TASK)
