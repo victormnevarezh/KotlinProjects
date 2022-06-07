@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.DetalleMateria.DetalleMateriaFragment">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.appalumno.domain.model.Materia" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgMateria"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/img"
+            app:loadFromUrl="@{item.foto}"
+            app:layout_constraintBottom_toTopOf="@id/txvNombreMateria"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txvNombreMateria"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@{item.nombre}"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@id/txvDescripcion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgMateria" />
+
+        <TextView
+            android:id="@+id/txvDescripcion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.descripcion}"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toTopOf="@id/txvDias"
+            app:layout_constraintEnd_toEndOf="@+id/txvNombreMateria"
+            app:layout_constraintStart_toStartOf="@+id/txvNombreMateria"
+            app:layout_constraintTop_toBottomOf="@+id/txvNombreMateria" />
+
+        <TextView
+            android:id="@+id/txvDias"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="dias"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@id/txvHoras"
+            app:layout_constraintEnd_toEndOf="@+id/txvNombreMateria"
+            app:layout_constraintStart_toStartOf="@+id/txvNombreMateria"
+            app:layout_constraintTop_toBottomOf="@+id/txvDescripcion" />
+
+        <TextView
+            android:id="@+id/txvHoras"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="horas"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@id/btnCalificaciones"
+            app:layout_constraintEnd_toEndOf="@+id/txvNombreMateria"
+            app:layout_constraintStart_toStartOf="@+id/txvNombreMateria"
+            app:layout_constraintTop_toBottomOf="@+id/txvDias" />
+
+        <Button
+            android:id="@+id/btnCalificaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calificaciones"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/ured"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txvHoras"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

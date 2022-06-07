@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.Perfil.PerfilFragment">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.appalumno.domain.model.Alumno"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/ured"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:drawableLeft="@drawable/ic_logout"
+            android:drawableTint="@color/white"
+            android:text="Logout"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/txvMatricula" />
+
+        <ImageView
+            android:id="@+id/imgAlumno"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/img"
+            app:layout_constraintBottom_toTopOf="@id/txvMatricula"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txvMatricula"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@{item.matricula}"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@id/edtNombre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgAlumno" />
+
+        <EditText
+            android:id="@+id/edtNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre(s)"
+            android:inputType="text"
+            android:text="@{item.nombre}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/edtApellidoPaterno"
+            app:layout_constraintEnd_toEndOf="@id/txvMatricula"
+            app:layout_constraintStart_toStartOf="@id/txvMatricula"
+            app:layout_constraintTop_toBottomOf="@+id/txvMatricula" />
+
+        <EditText
+            android:id="@+id/edtApellidoPaterno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Paterno"
+            android:text="@{item.aPaterno}"
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/edtApellidoMaterno"
+            app:layout_constraintEnd_toEndOf="@id/txvMatricula"
+            app:layout_constraintStart_toStartOf="@id/txvMatricula"
+            app:layout_constraintTop_toBottomOf="@+id/edtNombre" />
+
+        <EditText
+            android:id="@+id/edtApellidoMaterno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.aMaterno}"
+            android:hint="Materno"
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/edtCorreo"
+            app:layout_constraintEnd_toEndOf="@id/txvMatricula"
+            app:layout_constraintStart_toStartOf="@id/txvMatricula"
+            app:layout_constraintTop_toBottomOf="@+id/edtApellidoPaterno" />
+
+        <EditText
+            android:id="@+id/edtCorreo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.correo}"
+            android:hint="Correo"
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/edtImg"
+            app:layout_constraintEnd_toEndOf="@id/txvMatricula"
+            app:layout_constraintStart_toStartOf="@id/txvMatricula"
+            app:layout_constraintTop_toBottomOf="@+id/edtApellidoMaterno" />
+
+        <EditText
+            android:id="@+id/edtImg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="URL Imagen"
+            android:text="@{item.foto}"
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/btnAceptar"
+            app:layout_constraintEnd_toEndOf="@id/txvMatricula"
+            app:layout_constraintStart_toStartOf="@id/txvMatricula"
+            app:layout_constraintTop_toBottomOf="@+id/edtCorreo" />
+
+        <Button
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/ured"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            android:text="Aceptar"
+            android:textAllCaps="false"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/txvMatricula"
+            app:layout_constraintStart_toStartOf="@id/txvMatricula"
+            app:layout_constraintTop_toBottomOf="@id/edtImg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.appmaestro.presentation.LoginFragment.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_listadoMateriasFragment"
+            app:destination="@id/listadoMateriasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listadoMateriasFragment"
+        android:name="com.example.appmaestro.presentation.ListadoMaterias.ListadoMateriasFragment"
+        android:label="listado_materias_fragment"
+        tools:layout="@layout/listado_materias_fragment">
+        <action
+            android:id="@+id/action_listadoMateriasFragment_to_detalleMateriaFragment"
+            app:destination="@id/detalleMateriaFragment" />
+        <action
+            android:id="@+id/action_listadoMateriasFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleMateriaFragment"
+        android:name="com.example.appmaestro.presentation.DetalleMateria.DetalleMateriaFragment"
+        android:label="detalle_materia_fragment"
+        tools:layout="@layout/detalle_materia_fragment">
+        <action
+            android:id="@+id/action_detalleMateriaFragment_to_listadoAlumnosMateriaFragment"
+            app:destination="@id/listadoAlumnosMateriaFragment" />
+        <argument
+            android:name="materia"
+            app:argType="com.example.appmaestro.domain.model.Materia" />
+    </fragment>
+    <fragment
+        android:id="@+id/listadoAlumnosMateriaFragment"
+        android:name="com.example.appmaestro.presentation.ListadoAlumnoMateria.ListadoAlumnosMateriaFragment"
+        android:label="listado_alumnos_materia_fragment"
+        tools:layout="@layout/listado_alumnos_materia_fragment">
+        <action
+            android:id="@+id/action_listadoAlumnosMateriaFragment_to_detalleCalificacionAlumnoFragment"
+            app:destination="@id/detalleCalificacionAlumnoFragment" />
+        <argument
+            android:name="materia"
+            app:argType="com.example.appmaestro.domain.model.Materia" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleCalificacionAlumnoFragment"
+        android:name="com.example.appmaestro.presentation.DetalleCalificacionAlumno.DetalleCalificacionAlumnoFragment"
+        android:label="detalle_calificacion_alumno_fragment"
+        tools:layout="@layout/detalle_calificacion_alumno_fragment">
+        <argument
+            android:name="alumno"
+            app:argType="com.example.appmaestro.domain.model.Alumno" />
+        <action
+            android:id="@+id/action_detalleCalificacionAlumnoFragment_to_listadoAlumnosMateriaFragment"
+            app:destination="@id/listadoAlumnosMateriaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.appmaestro.presentation.Perfil.PerfilFragment"
+        android:label="perfil_fragment"
+        tools:layout="@layout/perfil_fragment" >
+        <action
+            android:id="@+id/action_perfilFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>

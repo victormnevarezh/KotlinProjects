@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.DetalleCalificaciones.DetalleCalificacionesFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/Calificacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            android:text="Calificaciones"
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@id/imgCal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgCal"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_materias"
+            app:layout_constraintBottom_toTopOf="@id/PrimerParcial"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Calificacion"
+            app:tint="@color/grey" />
+
+        <TextView
+            android:id="@+id/PrimerParcial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Primer Parcial:"
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@id/SegundoParcial"
+            app:layout_constraintEnd_toEndOf="@id/Calificacion"
+            app:layout_constraintStart_toStartOf="@+id/Calificacion"
+            app:layout_constraintTop_toBottomOf="@+id/imgCal" />
+
+        <TextView
+            android:id="@+id/CalParcial1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="@id/Calificacion"
+            app:layout_constraintStart_toStartOf="@+id/Calificacion"
+            app:layout_constraintTop_toBottomOf="@+id/PrimerParcial" />
+
+        <TextView
+            android:id="@+id/SegundoParcial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Segundo Parcial:"
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@id/TercerParcial"
+            app:layout_constraintEnd_toEndOf="@id/Calificacion"
+            app:layout_constraintStart_toStartOf="@+id/Calificacion"
+            app:layout_constraintTop_toBottomOf="@+id/PrimerParcial" />
+
+        <TextView
+            android:id="@+id/CalParcial2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="@id/Calificacion"
+            app:layout_constraintStart_toStartOf="@+id/Calificacion"
+            app:layout_constraintTop_toBottomOf="@+id/SegundoParcial" />
+
+        <TextView
+            android:id="@+id/TercerParcial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="50dp"
+            android:text="Tercer Parcial:"
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/Calificacion"
+            app:layout_constraintStart_toStartOf="@+id/Calificacion"
+            app:layout_constraintTop_toBottomOf="@+id/SegundoParcial" />
+
+        <TextView
+            android:id="@+id/CalParcial3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="@id/Calificacion"
+            app:layout_constraintStart_toStartOf="@+id/Calificacion"
+            app:layout_constraintTop_toBottomOf="@id/TercerParcial" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

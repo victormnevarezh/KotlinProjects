@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.appmaestro.domain.model.Alumno" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imgAlumno"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/img"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadFromUrl="@{item.foto}"/>
+
+            <TextView
+                android:id="@+id/txvMatricula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:drawablePadding="5dp"
+                android:drawableTint="@color/black"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxLines="1"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgAlumno"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@{item.matricula}" />
+
+            <TextView
+                android:id="@+id/txvApellidoP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:drawablePadding="5dp"
+                android:drawableTint="@color/black"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxLines="1"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txvApellidoM"
+                app:layout_constraintStart_toEndOf="@+id/txvMatricula"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@{item.aPaterno}" />
+
+            <TextView
+                android:id="@+id/txvApellidoM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:drawablePadding="7dp"
+                android:drawableTint="@color/black"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxLines="1"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txvApellidoP"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@{item.aMaterno}" />
+
+            <TextView
+                android:id="@+id/txvNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:drawablePadding="5dp"
+                android:drawableTint="@color/black"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxLines="1"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txvApellidoM"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@{item.nombre}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
